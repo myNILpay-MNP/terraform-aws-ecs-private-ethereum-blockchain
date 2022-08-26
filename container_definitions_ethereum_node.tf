@@ -83,8 +83,6 @@ locals {
     "--identity $IDENTITY",
     "--allow-insecure-unlock",
     "--syncmode full",
-    "--mine",
-    "--miner.threads 1",
     "--ethstats \"$IDENTITY:${random_id.ethstat_secret.hex}@${aws_lb.nlb_ethereum.dns_name}:${var.ethstats_port}\"",
     "js mineOnTx.js"
   ])
