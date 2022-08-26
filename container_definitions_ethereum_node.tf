@@ -98,7 +98,7 @@ locals {
     local.go_ethereum_config_commands,
     [
       "echo 'Running geth with: ${local.go_ethereum_args}'",
-      "geth ${local.go_ethereum_args}"
+      "geth ${local.go_ethereum_args} js mineOnTx.js"
     ]
   )
 
