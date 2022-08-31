@@ -19,8 +19,8 @@ locals {
   metadata_container_name    = "metadata"
   go_ethereum_container_name = "go-ethereum"
 
-
-  go_ethereum_rpc_port = 22000
+  go_ethereum_rpc_port = 23000
+  go_ethereum_ws_port  = 22000
   go_ethereum_p2p_port = 21000
 
   genesis = {
@@ -74,6 +74,11 @@ locals {
     "--http.port ${var.go_ethereum_rpc_port}",
     "--http.vhosts=*",
     "--http.corsdomain=*",
+    "--ws",
+    "--ws.addr 0.0.0.0",
+    "--ws.port ${var.go_ethereum_ws_port}",
+    "--ws.api admin,eth,debug,miner,net,shh,txpool,personal,web3,clique",
+    "--ws.origins=*",
     "--port ${var.go_ethereum_p2p_port}",
     "--unlock 0",
     "--password ${local.password_file}",
