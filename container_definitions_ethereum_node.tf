@@ -19,15 +19,14 @@ locals {
   metadata_container_name    = "metadata"
   go_ethereum_container_name = "go-ethereum"
 
-  go_ethereum_rpc_port = 23000
-  go_ethereum_ws_port  = 22000
+  go_ethereum_rpc_port = 22000
   go_ethereum_p2p_port = 21000
 
   genesis = {
 
     "alloc" = {}
 
-    "coinbase" = "0x0000000000000000000000000000000000000000"
+    "coinbase" = "0x964df13dd08d735838bb56e7a55a132070f9b40b"
 
     "config" = {
       "homesteadBlock"      = 0
@@ -76,7 +75,7 @@ locals {
     "--http.corsdomain=*",
     "--ws",
     "--ws.addr 0.0.0.0",
-    "--ws.port ${var.go_ethereum_ws_port}",
+    "--ws.port 23000",
     "--ws.api admin,eth,debug,miner,net,shh,txpool,personal,web3,clique",
     "--ws.origins=*",
     "--port ${var.go_ethereum_p2p_port}",
